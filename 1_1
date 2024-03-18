@@ -1,0 +1,28 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int fun_div(int divisor, int dividendo, int &res);
+
+int main(int argc, char *argv[]) {
+	int a, b, x;
+	int resto;
+	
+	cout<<"ingrese divisor: ";
+	cin>>a;
+	cout<<"ingrese dividendo: ";
+	cin>>b;
+	
+	x = fun_div (a, b, resto);
+	
+	cout<<"resultado de la division: "<< x <<endl;
+	cout<<"resto de la division: "<<resto;
+	
+	return 0;
+}
+
+int fun_div(int divisor, int dividendo, int &res){
+	int resultado = divisor/dividendo;
+	res=divisor%dividendo;
+	return (resultado);
+}
