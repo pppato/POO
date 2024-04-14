@@ -1,0 +1,43 @@
+/*6. Realice una función que dado un vector dinámico de enteros, remueva un elemento pasado
+por parámetro.*/
+#include <iostream>
+using namespace std;
+
+int *remueve(int *old, int tam, int pos){
+
+	if (pos>tam){
+		return old;
+	} else {
+		int j=0; int *aux=new int [tam-1];
+		for (int i=0;i<tam;i++){
+			if (i!=pos){
+				aux[j]=old[i];
+				j++;
+			}
+		}
+		delete[]old;
+		return aux;
+	}
+}
+
+int main(int argc, char *argv[]) {
+	int tam=5, pos;
+	int *vec = new int [tam];
+	
+	vec[0]=54; vec[1]=34; vec[2]=65; vec[3]=76; vec[4]=19;
+	
+	cin>>pos;
+	
+	for(int i=0;i<tam;i++){
+		cout<<vec[i]<<" ";
+	}
+	cout<<endl;
+	int *nuevo=remueve(vec,tam,pos);
+	
+	for(int i=0;i<tam-1;i++){
+		cout<<nuevo[i]<<" ";
+	}
+	delete[]vec;
+	return 0;
+}
+
